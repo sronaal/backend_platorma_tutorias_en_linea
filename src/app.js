@@ -1,19 +1,32 @@
-const express = require("express") // framework http para la creacion de controladores
-const cors = require("cors") // libreria para configurar el acceso al backend desde origines externos
+import express from 'express' // framework http para la creacion de controladores
+import cors from 'cors'
+ // libreria para configurar el acceso al backend desde origines externos
 
-const {configuraciones_server} = require("./config/configuraciones")
-const rutasUsuarios = require("./app/routes/usuarios.routes")
+import config from './config/configuraciones.js'
 
+import rutasUsuarios from "./app/routes/usuarios.routes.js"
+import database from './database_conexion.js'
 const app = express()
 
 
 // RUTAS DE LA APLICACIONES
 
-app.use(`${configuraciones_server.ruta}/${rutasUsuarios}`)
 
 
 app.use(cors({
-    origin:'*'
+    origin: '*'
 }))
 
-module.exports = app
+
+const DbConexion = async () => {
+
+    try {
+        await database.authenticate()
+        console.log("Co")
+    } catch (error) {
+
+    }
+}
+
+
+export default app

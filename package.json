@@ -2,6 +2,7 @@
   "name": "backend_tutorias",
   "version": "1.0.0",
   "description": "Backend de plataforma para el agendamiento de turorias con profesores por parte de estudiantes",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
