@@ -9,9 +9,9 @@ export class DaoUsuario {
         return Usuario.create(usuario)
     }
 
-    async FindByUser(usuario) {
+    async findByEmail(email) {
 
-        let usuario = await  Usuario.findOne({ where: {email:usuario.email} })
+        let usuario = await  Usuario.findOne({ where: {email:email} })
         
         if(!usuario) return null
 
