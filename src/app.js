@@ -6,6 +6,7 @@ import config from './config/configuraciones.js'
 
 import rutasUsuarios from "./app/routes/usuarios.routes.js"
 import database from './database_conexion.js'
+import { initModel } from './app/models/init_models.js'
 const app = express()
 
 
@@ -18,15 +19,23 @@ app.use(cors({
 }))
 
 
-const DbConexion = async () => {
+// Conexion base de datos
+database.authenticate()
+.then(() => {
 
-    try {
-        await database.authenticate()
-        console.log("Co")
-    } catch (error) {
+    console.log("CONEXION DB EXITOSA")
+    initModel()
+    return database.sync({ force:true})
+   
+})
+.then(() => {
 
-    }
-}
+    console.log("SINCRONIZACION DB EXITOSA ")
+})
+.catch((error) => {
+
+    console.error("Error  DB ", error)
+})
 
 
 export default app
