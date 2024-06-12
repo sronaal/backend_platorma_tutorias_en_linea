@@ -2,12 +2,13 @@ import { DataTypes } from "sequelize";
 import database from "../../database_conexion.js";
 import { Usuario } from "./usuario.models.js";
 
+export const Tutor = database.define('Tutor', {
 
-export const Administrador = database.define('Administrador', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement:true
+
+    id:{
+        type:DataTypes.INTEGER,
+        autoIncrement:true,
+        primaryKey:true,
     },
 
     id_usuario:{
@@ -17,14 +18,13 @@ export const Administrador = database.define('Administrador', {
              key:'id'
         }
     },
-
-    departamento: {
-        type: DataTypes.STRING,
-        allowNull: false
+    
+    ubicacion:{
+        type:DataTypes.STRING
     }
 },
 {
     createdAt:false,
     updatedAt:false
 }
-);
+)
