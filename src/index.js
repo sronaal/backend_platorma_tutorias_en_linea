@@ -1,7 +1,7 @@
 import app from './app.js'
 
 
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 8081
 
 app.listen(PORT, (err) => {
 

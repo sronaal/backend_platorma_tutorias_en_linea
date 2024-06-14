@@ -12,14 +12,6 @@ const app = express()
 
 // RUTAS DE LA APLICACIONES
 
-
-
-app.use(cors({
-    origin: '*'
-}))
-
-
-// Conexion base de datos
 database.authenticate()
 .then(() => {
 
@@ -36,6 +28,19 @@ database.authenticate()
 
     console.error("Error  DB ", error)
 })
+
+app.use(cors({
+    origin: '*'
+}))
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
+app.use('/api/v1/user', rutasUsuarios)
+
+
+// Conexion base de datos
+
 
 
 export default app
