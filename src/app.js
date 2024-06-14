@@ -5,7 +5,11 @@ import cors from 'cors'
 import config from './config/configuraciones.js'
 
 import rutasUsuarios from "./app/routes/usuarios.routes.js"
+import rutasMateria from './app/routes/materia.routes.js'
+
+
 import database from './database_conexion.js'
+
 import { initModel } from './app/models/init_models.js'
 const app = express()
 
@@ -17,7 +21,7 @@ database.authenticate()
 
     console.log("CONEXION DB EXITOSA")
     initModel()
-    return database.sync({ force:true})
+    return database.sync({ force:false})
    
 })
 .then(() => {
@@ -37,7 +41,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 app.use('/api/v1/user', rutasUsuarios)
-
+app.use('/api/v1/materia', rutasMateria)
 
 // Conexion base de datos
 
