@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import database from "../../database_conexion.js";
 import { Usuario } from "./usuario.models.js";
 
-export const Tutor = database.define('Tutor', {
+export const Tutor = database.define('tutor', {
 
 
     id:{

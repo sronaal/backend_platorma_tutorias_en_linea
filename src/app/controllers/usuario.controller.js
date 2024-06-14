@@ -52,7 +52,7 @@ export const registrarUsuario = async (req = request, res = response) => {
 
         if(!result) return res.status(400).json({"Error":"Error al registrar el usuario"})
 
-        return res.status(200).json({"Mensaje":"Usuario creado correctamente"})
+        return res.status(201).json({"Mensaje":"Usuario creado correctamente"})
         
     } catch (error) {
 

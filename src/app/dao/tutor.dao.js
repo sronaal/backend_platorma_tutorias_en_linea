@@ -10,6 +10,13 @@ export class DaoTutor {
         return Tutor.create({id_usuario:id_usuario})
     }
 
+
+    obtenerEstudiantes(){
+
+        
+    }
+
+
     inscribirMateria(){}
 
     eliminarInscripcionMaterial(){}
