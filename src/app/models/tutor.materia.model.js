@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import database from "../../database_conexion.js";
-import { Tutor } from "./tutor.mode.js";
+import { Tutor } from "./tutor.model.js";
 import { Materia } from "./materia.model.js";
 
 

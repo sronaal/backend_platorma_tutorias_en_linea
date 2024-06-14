@@ -20,7 +20,7 @@ export const Materia = database.define('materias',{
     },
     unidadDuracion:{
         type:DataTypes.STRING,
-        allowNull:true
+        allowNull:false
     },
     descripcion:{
         type: DataTypes.STRING

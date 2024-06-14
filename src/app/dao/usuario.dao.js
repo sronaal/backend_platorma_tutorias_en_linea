@@ -44,6 +44,11 @@ export class DaoUsuario {
 
         return usuario
     }
+
+
+    actualizarUsuario(){
+        
+    }
     
 
 

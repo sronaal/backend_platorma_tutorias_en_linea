@@ -1,4 +1,4 @@
-import { Tutor } from "../models/tutor.mode.js";
+import { Tutor } from "../models/tutor.model.js";
 import { Usuario } from "../models/usuario.models.js";
 
 export class DaoTutor {
@@ -17,7 +17,7 @@ export class DaoTutor {
     }
 
 
-    inscribirMateria(){}
+    inscribirMateria(Materia){}
 
     eliminarInscripcionMaterial(){}
 

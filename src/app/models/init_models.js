@@ -2,7 +2,7 @@ import { Administrador } from "./administrador.model.js";
 import { Estudiante } from "./estudiantes.model.js";
 import { Materia } from "./materia.model.js";
 import { TutorMateria } from "./tutor.materia.model.js";
-import { Tutor } from "./tutor.mode.js";
+import { Tutor } from "./tutor.model.js";
 import { Usuario } from "./usuario.models.js";
 
 
