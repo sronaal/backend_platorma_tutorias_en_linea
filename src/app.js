@@ -27,7 +27,7 @@ const conectarDB = () => {
 
             console.log("CONEXION DB EXITOSA")
             initModel()
-            return database.sync({ force: false })
+            return database.sync({ force: true })
 
         })
         .then(() => {
@@ -55,7 +55,7 @@ const swaggerOptiosn = {
 const swaggerDoc  = swaggerJSDoc(swaggerOptiosn)
 
 // RUTAS DE LA APLICACIONES
-app.use('/api/doc',swaggerUI.serve, swaggerUI.setup(swaggerOptiosn))
+//app.use('/api/doc',swaggerUI.serve, swaggerUI.setup(swaggerOptiosn))
 app.use('/api/v1/user', rutasUsuarios)
 app.use('/api/v1/materia', rutasMateria)
 app.use('/api/v1/tutor', rutasTutor)

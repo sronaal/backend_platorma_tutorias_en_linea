@@ -5,6 +5,7 @@ import { DaoTutor } from "./tutor.dao.js";
 let daoTutor = new DaoTutor()
 let daoEstudiante = new DaoEstudiante()
 
+
 export class DaoUsuario {
 
 
@@ -21,10 +22,23 @@ export class DaoUsuario {
 
                     if (usuario.id_rol == 2) {
 
+                        
+
+
                         return daoTutor.asignarRolTutor(usuario_id)
                     }
                     if (usuario.id_rol == 3) {
-                        return daoEstudiante.asignarRolEstudiante(usuario_id)
+
+                        let estudiante = {
+
+                            "id_usuario":userData.dataValues.id,
+                            "grado": usuario.grado,
+                            "preferencias": usuario.preferencias,
+                            "discapacidad": usuario.discapacidad
+                        }
+
+
+                        return daoEstudiante.agregarDatosEstudiante(estudiante)
                     }
                 })
                 .then(() => {

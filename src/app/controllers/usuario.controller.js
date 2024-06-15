@@ -47,19 +47,20 @@ export const IniciarSesion = async (req = request, res = response) => {
 
 export const registarEstudiante = async (req = request, res = response) => {
 
-
+    //console.log(req.body)
     try {
 
-        let { nombre, apellido, email, password, id_rol, edad, direccion, telefono, discapacidad, descripcion_discapacidad, preferencias, descripcion_personal } = req.body
+        let { nombre, apellido, email, password, rol, edad, datos_geograficos, telefono, discapacidad, descripcion_discapacidad, preferencias, descripcion_personal } = req.body
+
 
         let usuario = {
             "nombre": nombre,
             "apellido": apellido,
             "email": email,
             "password": await generarHashPassword(password),
-            "id_rol": id_rol,
+            "id_rol": rol,
             "edad": edad,
-            "direccion": direccion,
+            //"direccion": datos_geograficos,
             "telefono": telefono,
             "discapacidad": discapacidad,
             "descripcion_discapacidad": descripcion_discapacidad,
@@ -67,6 +68,7 @@ export const registarEstudiante = async (req = request, res = response) => {
             "descripcion_personal": descripcion_personal,
         }
 
+        console.log(usuario)
 
         let validarExistenciaEmail = await usuarioDao.buscarPorEmail(email)
 

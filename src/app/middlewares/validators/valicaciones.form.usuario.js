@@ -11,10 +11,9 @@ export const validacionFormularioUsuarioLogin = [
 
 export const validacionFormularioUsuarioRegistroEstudiante = [
 
-    body('nombre').isEmpty().withMessage("El nombre es requerido")
-    .trim().escape(),
+    body('nombre').notEmpty().withMessage("El nombre es requerido"),
     
-    body('apellido').isEmpty().withMessage('El apellido es requerido')
+    body('apellido').notEmpty().withMessage('El apellido es requerido')
     .trim().escape(),
 
     body('email').isEmail().withMessage("El correo electrónico es inválido")
@@ -23,12 +22,11 @@ export const validacionFormularioUsuarioRegistroEstudiante = [
     body('password').isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 6 caracteres")
     .trim().escape(),
 
-    body('rol').isEmpty().withMessage("El rol es requerido")
-    .isIn([1]).withMessage("Valor ingresado invalido")
+    body('rol').notEmpty().withMessage("El rol es requerido")
+    .isIn([3]).withMessage("Valor ingresado invalido")
     .isInt().withMessage("El valor debe ser un numero").trim(),
 
-    body('telefono').isEmpty().withMessage("El telefono es obligatorio")
-    .isInt().whitelist('El valor debe ser un numero').trim(),
+    body('telefono').notEmpty().withMessage("El telefono es obligatorio").trim(),
 
     body('ubicacion').trim().escape()
     

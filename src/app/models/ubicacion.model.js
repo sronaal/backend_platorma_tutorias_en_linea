@@ -10,7 +10,7 @@ export const Ubicacion = database.define('ubicacion_greografica', {
 
     },
 
-    bogota:{
+    pais:{
         type: DataTypes.STRING,
         allowNull:true
     },

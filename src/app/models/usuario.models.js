@@ -27,7 +27,7 @@ export const Usuario = database.define('Usuario', {
 
     telefono:{
 
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
         allowNull: null
     },
     edad:{

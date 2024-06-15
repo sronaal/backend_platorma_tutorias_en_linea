@@ -4,8 +4,10 @@ export class DaoEstudiante {
 
 
 
-    asignarRolEstudiante(id_usuario){
+    agregarDatosEstudiante(estudiante){
 
-        return Estudiante.create({id_usuario:id_usuario})
+        return Estudiante.create(estudiante)
     }
+
+
 }
