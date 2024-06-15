@@ -1,5 +1,6 @@
 import { Tutor } from "../models/tutor.model.js";
 import { Usuario } from "../models/usuario.models.js";
+import { Materia } from '../models/materia.model.js'
 
 export class DaoTutor {
 
@@ -11,7 +12,20 @@ export class DaoTutor {
     }
 
 
-    obtenerEstudiantes(){
+    obtenerTutores(){
+
+        return Tutor.findAll({
+        
+            include: [
+                {
+                    model: Materia
+                }
+            ]
+        })
+
+    }
+
+    obtenerTutorias(){
 
         
     }

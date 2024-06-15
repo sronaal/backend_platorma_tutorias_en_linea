@@ -34,7 +34,7 @@ export const agregarMateria = async (req = request, res = response) => {
 
 export const obtenerMaterias = async (req = request, res = response) => {
 
-    let datos = await daoMateria.obtenerMateriasV2()
+    let materias = await daoMateria.obtenerMateriasV2()
 
-    return res.status(200).json({datos})
+    return res.status(200).json({ materias })
 }
