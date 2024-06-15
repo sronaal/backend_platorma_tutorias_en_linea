@@ -9,6 +9,8 @@ export class DaoMateria {
   }
 
   
+  obtenerMateriasV2(){}
+
   async  obtenerMaterias() {
     let materiasDisponibles = [];
 
@@ -20,6 +22,8 @@ export class DaoMateria {
             }
         });
 
+
+        
         // Crear un array de promesas para todas las operaciones asincrónicas
         const promises = materias.map(async (materia) => {
             try {

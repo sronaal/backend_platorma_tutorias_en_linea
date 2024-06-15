@@ -2,9 +2,11 @@ import bcrypt, { hash } from 'bcrypt'
 
 
 
-export const  validarContraseñaHash = async (hashPassword, password) => {
+export const  validarContraseñaHash =  (hashPassword, password) => {
 
     let result =  bcrypt.compareSync(password,hashPassword)
+
+    return result
 }
 
 export const generarHashPassword = async (password) => {
