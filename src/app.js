@@ -12,7 +12,7 @@ import swaggerConfig from './config/swagger.js'
 import rutasUsuarios from "./app/routes/usuarios.routes.js"
 import rutasMateria from './app/routes/materia.routes.js'
 import rutasTutor from './app/routes/tutores.routes.js'
-
+import rutasEstudiante from './app/routes/estudiantes.routes.js'
 import database from './database_conexion.js'
 
 import { initModel } from './app/models/init_models.js'
@@ -27,7 +27,7 @@ const conectarDB = () => {
 
             console.log("CONEXION DB EXITOSA")
             initModel()
-            return database.sync({ force: true })
+            return database.sync({ force: false })
 
         })
         .then(() => {
@@ -59,7 +59,7 @@ const swaggerDoc  = swaggerJSDoc(swaggerOptiosn)
 app.use('/api/v1/user', rutasUsuarios)
 app.use('/api/v1/materia', rutasMateria)
 app.use('/api/v1/tutor', rutasTutor)
-
+app.use('/api/v1/estudiante', rutasEstudiante)
 
 
 

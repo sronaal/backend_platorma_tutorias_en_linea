@@ -11,7 +11,7 @@ const router = Router()
 
 router.post('/auth', validacionFormularioUsuarioLogin, validaciones, IniciarSesion)
 router.post('/register/estudiante', validacionFormularioUsuarioRegistroEstudiante, validaciones, registarEstudiante)
-//router.post('/register/tutor', validacionFormularioUsuarioLogin, validaciones, registrarTutor)
+router.post('/register/tutor', validacionFormularioUsuarioLogin, validaciones, registrarTutor)
 
 
 export default router   
