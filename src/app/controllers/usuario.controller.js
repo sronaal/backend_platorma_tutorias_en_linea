@@ -31,7 +31,7 @@ export const IniciarSesion = async (req = request, res = response) => {
 
         let jwt = crearToken(dataToken)
 
-        return res.status(200).json({"token":jwt})
+        return res.status(200).json({ "token": jwt })
 
 
 
@@ -43,7 +43,48 @@ export const IniciarSesion = async (req = request, res = response) => {
 }
 
 
-export const registrarUsuario = async (req = request, res = response) => {
+
+
+export const registarEstudiante = async (req = request, res = response) => {
+
+
+    try {
+
+        let { nombre, apellido, email, password, id_rol, edad, direccion, telefono, discapacidad, descripcion_discapacidad, preferencias, descripcion_personal } = req.body
+
+        let usuario = {
+            "nombre": nombre,
+            "apellido": apellido,
+            "email": email,
+            "password": await generarHashPassword(password),
+            "id_rol": id_rol,
+            "edad": edad,
+            "direccion": direccion,
+            "telefono": telefono,
+            "discapacidad": discapacidad,
+            "descripcion_discapacidad": descripcion_discapacidad,
+            "preferencias": preferencias,
+            "descripcion_personal": descripcion_personal,
+        }
+
+
+        let validarExistenciaEmail = await usuarioDao.buscarPorEmail(email)
+
+        if (validarExistenciaEmail) return res.status(401).json({ "Mensaje": "Correo electronico en uso" })
+
+        let result = await usuarioDao.registrarUsuario(usuario)
+
+        if (!result) return res.status(400).json({ "Error": "Error al registrar el usuario" })
+
+        return res.status(201).json({ "Mensaje": "Usuario creado correctamente" })
+
+
+    } catch (error) {
+        return res.status(400).json({ "Error": error })
+    }
+}
+
+export const registrarTutor = async (req = request, res = response) => {
 
     try {
 
@@ -85,14 +126,14 @@ export const asignarRolTutorEstudiante = async (req = request, res = response) =
 
         let usuario = await usuarioDao.buscarPorId(id_usuario)
 
-        if(!usuario) return res.status(404).json({"Mensaje":"Usuario no encontrado"})
-        
-        
+        if (!usuario) return res.status(404).json({ "Mensaje": "Usuario no encontrado" })
+
+
 
 
 
     } catch (error) {
-    
-        return res.status(400).json({error})
+
+        return res.status(400).json({ error })
     }
 }
