@@ -1,6 +1,6 @@
 import { Estudiante } from '../models/estudiantes.model.js'
 import { Usuario } from '../models/usuario.models.js'
-
+import { Tutor  } from '../models/tutor.model.js'
 export class DaoEstudiante {
 
 
@@ -25,5 +25,7 @@ export class DaoEstudiante {
         })
     }
 
+
+    
 
 }

@@ -12,6 +12,32 @@ export class DaoTutor {
     }
 
 
+    obtenerTutoresFiltrados(filtros){
+
+
+        let queryOptions = {
+
+            include: [
+                {
+                    model:Usuario,
+                    include: ['nombre','apellido','email']
+                },
+                {
+                    model:Materia,
+                    through: { attributes: [] } 
+                }
+            ],
+            where: {}
+        }
+
+        if(filtros.materia != undefined) queryOptions.include[1].where = { nombre: filtros.materia}
+
+        return Tutor.findAll()
+
+       
+    }
+
+
     obtenerTutores(){
 
         return Tutor.findAll({

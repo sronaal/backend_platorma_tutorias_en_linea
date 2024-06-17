@@ -1,4 +1,4 @@
-import { request, response } from 'express'
+import { request, response  } from 'express'
 import { DaoTutor } from  '../dao/tutor.dao.js'
 
 let tutorDao = new DaoTutor()
@@ -15,4 +15,18 @@ export const obtenerTutoresDisponibles = async (req = request, res = response) =
         return res.status(400).json({ error })
     }    
 
+}
+
+
+export const filtradoTurores = async (req = request, res = response) => {
+
+    try {
+        
+        const { query } = req
+        
+        console.log(query)
+      
+    } catch (error) {
+        
+    }
 }

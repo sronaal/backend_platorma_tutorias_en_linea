@@ -34,6 +34,8 @@ export const validacionFormularioUsuarioRegistroEstudiante = [
 ]
 
 
+export const validacionFormularioUsuarioRegistroTutor = []
+
 export const validaciones = (req, res, next) => {
     const errores = validationResult(req);
 

@@ -22,6 +22,7 @@ export class DaoMateria {
                         {
                             model:Usuario,
                             attributes:['id','nombre','apellido','email']
+                            
                         }
                     ],
                     through: { attributes:[] }
@@ -29,11 +30,12 @@ export class DaoMateria {
             ]  
         
         })
-
-        
-
        
     }
+
+
+
+   
 
     async obtenerMaterias() {
         let materiasDisponibles = [];
