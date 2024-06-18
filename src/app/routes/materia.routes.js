@@ -6,6 +6,6 @@ const router = Router()
 
 
 router.post('/add', agregarMateria)
-router.get('/', obtenerMaterias)
+router.get('/tutores', obtenerMaterias)
 
 export default router

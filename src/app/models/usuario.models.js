@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import database from '../../database_conexion.js'
 import { Rol } from "./rol.model.js";
-
+import { Ubicacion } from './ubicacion.model.js'
 
 export const Usuario = database.define('Usuario', {
 
@@ -24,10 +24,31 @@ export const Usuario = database.define('Usuario', {
         type: DataTypes.STRING,
         allowNull: null
     },
+
+    telefono:{
+
+        type:DataTypes.STRING,
+        allowNull: null
+    },
+    edad:{
+        type:DataTypes.INTEGER,
+        allowNull: null
+    },
+    
     password: {
         type: DataTypes.STRING,
         allowNull: null
     },
+
+
+    ubicacion:{
+        type: DataTypes.INTEGER,
+        references:{
+            model: Ubicacion,
+            key:'id'
+        }
+    },
+
     id_rol:{
         type: DataTypes.INTEGER,
         references:{

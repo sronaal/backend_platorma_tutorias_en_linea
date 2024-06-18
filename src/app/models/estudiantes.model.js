@@ -20,8 +20,16 @@ export const Estudiante = database.define('estudiante', {
 
     grado: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: null
     },
+
+    preferencias:{
+        type: DataTypes.JSON()
+    },
+
+    discapacidad:{
+        type: DataTypes.JSON()
+    }
 
 
 }, {

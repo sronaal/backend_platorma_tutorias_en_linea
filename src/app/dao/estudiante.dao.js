@@ -1,11 +1,31 @@
 import { Estudiante } from '../models/estudiantes.model.js'
-
+import { Usuario } from '../models/usuario.models.js'
+import { Tutor  } from '../models/tutor.model.js'
 export class DaoEstudiante {
 
 
 
-    asignarRolEstudiante(id_usuario){
+    agregarDatosEstudiante(estudiante) {
 
-        return Estudiante.create({id_usuario:id_usuario})
+        return Estudiante.create(estudiante)
     }
+
+
+    obtenerDatosEstudiante(id_usuario) {
+
+        return Usuario.findOne({ where: { id: id_usuario }, 
+            
+            attributes:['id','nombre','apellido','edad','email','telefono','ubicacion'],
+            include: [
+                {
+                    model:Estudiante
+                }
+            ],
+            
+        })
+    }
+
+
+    
+
 }

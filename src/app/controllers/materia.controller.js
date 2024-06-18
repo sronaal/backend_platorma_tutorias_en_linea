@@ -34,17 +34,7 @@ export const agregarMateria = async (req = request, res = response) => {
 
 export const obtenerMaterias = async (req = request, res = response) => {
 
+    let materias = await daoMateria.obtenerMateriasV2()
 
-    try {
-
-        let materias = await daoMateria.obtenerMaterias()
-
-        if (materias.length < 1) return res.status(200).json({ "Mensaje": "Sin materias disponibles" })
-
-        return res.status(200).json({ materias })
-
-    } catch (error) {
-
-        return res.status(400).json({ error })
-    }
+    return res.status(200).json({ materias })
 }
