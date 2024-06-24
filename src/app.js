@@ -1,12 +1,6 @@
 import express from 'express' // framework http para la creacion de controladores
 import cors from 'cors'
-import swaggerJSDoc from 'swagger-jsdoc'
-import swaggerUI from 'swagger-ui-express'
-import path from 'path'
-// libreria para configurar el acceso al backend desde origines externos
 
-import config from './config/configuraciones.js'
-import swaggerConfig from './config/swagger.js'
 
 // IMPORTACION DE RUTAS
 import rutasUsuarios from "./app/routes/usuarios.routes.js"
@@ -47,12 +41,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-const swaggerOptiosn = {
 
-    definition: swaggerConfig,
-    apis: ['./app/routes/*.js']
-}
-const swaggerDoc  = swaggerJSDoc(swaggerOptiosn)
 
 // RUTAS DE LA APLICACIONES
 //app.use('/api/doc',swaggerUI.serve, swaggerUI.setup(swaggerOptiosn))

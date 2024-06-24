@@ -1,7 +1,10 @@
 import { Sequelize } from "sequelize"
-const database = new Sequelize('tutorias','tutorias','desarrollo.0021',{
+import config from './config/configuraciones.js'
 
-    host:'localhost',
+console.log(config)
+const database = new Sequelize(config.database.dabase,config.database.user,config.database.password,{
+
+    host: config.database.host,
     dialect:'mysql',
     
     

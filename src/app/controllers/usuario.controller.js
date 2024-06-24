@@ -119,23 +119,3 @@ export const registrarTutor = async (req = request, res = response) => {
 
 }
 
-export const asignarRolTutorEstudiante = async (req = request, res = response) => {
-
-    try {
-
-        let { id_usuario, rol } = req.body
-
-
-        let usuario = await usuarioDao.buscarPorId(id_usuario)
-
-        if (!usuario) return res.status(404).json({ "Mensaje": "Usuario no encontrado" })
-
-
-
-
-
-    } catch (error) {
-
-        return res.status(400).json({ error })
-    }
-}
