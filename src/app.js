@@ -10,6 +10,7 @@ import rutasEstudiante from './app/routes/estudiantes.routes.js'
 import database from './database_conexion.js'
 
 import { initModel } from './app/models/init_models.js'
+import {  initData } from './config/initData.js'
 const app = express()
 
 
@@ -21,6 +22,8 @@ const conectarDB = () => {
 
             console.log("CONEXION DB EXITOSA")
             initModel()
+            //initData()
+
             return database.sync({ force: false })
 
         })

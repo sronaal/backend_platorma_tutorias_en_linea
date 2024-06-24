@@ -30,8 +30,8 @@ export const Usuario = database.define('Usuario', {
         type:DataTypes.STRING,
         allowNull: null
     },
-    edad:{
-        type:DataTypes.INTEGER,
+    fecha_nacimiento:{
+        type:DataTypes.DATE,
         allowNull: null
     },
     

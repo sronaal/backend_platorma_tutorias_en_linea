@@ -47,10 +47,9 @@ export const IniciarSesion = async (req = request, res = response) => {
 
 export const registarEstudiante = async (req = request, res = response) => {
 
-    //console.log(req.body)
     try {
 
-        let { nombre, apellido, email, password, rol, edad, datos_geograficos, telefono, discapacidad, descripcion_discapacidad, preferencias, descripcion_personal } = req.body
+        let { nombre, apellido, email, password, rol, fecha_nacimiento, datos_geograficos, telefono, discapacidad, descripcion_discapacidad, preferencias, descripcion_personal } = req.body
 
 
         let usuario = {
@@ -59,7 +58,7 @@ export const registarEstudiante = async (req = request, res = response) => {
             "email": email,
             "password": await generarHashPassword(password),
             "id_rol": rol,
-            "edad": edad,
+            "fecha_nacimiento": fecha_nacimiento,
             //"direccion": datos_geograficos,
             "telefono": telefono,
             "discapacidad": discapacidad,
