@@ -27,7 +27,7 @@ export const validacionFormularioUsuarioRegistroEstudiante = [
     .isInt().withMessage("El valor debe ser un numero").trim(),
 
     body('telefono').notEmpty().withMessage("El telefono es obligatorio").trim(),
-    body('fecha_nacimiento').isDate(),
+    body('fecha_nacimiento').isDate({format:"string"}),
     body('ubicacion').trim().escape()
     
     
@@ -53,6 +53,7 @@ export const validacionFormularioUsuarioRegistroTutor = [
     .isInt().withMessage("El valor debe ser un numero").trim(),
 
     body('telefono').notEmpty().withMessage("El telefono es obligatorio").trim(),
+    body('fecha_nacimiento').isDate({format:"string"}),
 
     body('ubicacion').trim().escape()
 
