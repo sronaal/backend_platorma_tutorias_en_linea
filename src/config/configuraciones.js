@@ -2,11 +2,11 @@ import path from "path";
 import env from "dotenv";
 import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url); // esta linea es para obtener la ruta del archivo actual
+const __dirname = path.dirname(__filename); // esta linea es para obtener la ruta del directorio actual
 
 env.configDotenv({
-  path: path.resolve(__dirname, ".env"),
+  path: path.resolve(__dirname, ".env")
 });
 
 console.log(__dirname);
