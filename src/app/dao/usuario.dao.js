@@ -21,6 +21,7 @@ export class DaoUsuario {
                     let usuario_id = userData.dataValues.id
 
                     if (usuario.id_rol == 2) {
+                        
 
                         
 
