@@ -24,11 +24,4 @@ export default {
     password: process.env.PASS,
     database: process.env.DB,
   },
-
-  databaseYesid: {
-    host: "localhost",
-    user: "root",
-    password: "1234",
-    database: "tutorias",
-  },
 };
