@@ -23,7 +23,7 @@ export const validacionFormularioUsuarioRegistroEstudiante = [
     .trim().escape(),
 
     body('rol').notEmpty().withMessage("El rol es requerido")
-    .isIn([3]).withMessage("Valor ingresado invalido")
+    .isIn([3]).withMessage("Valor ingresado invalido") //  3 es el id del rol estudiante en la base de datos
     .isInt().withMessage("El valor debe ser un numero").trim(),
 
     body('telefono').notEmpty().withMessage("El telefono es obligatorio").trim(),
@@ -49,11 +49,11 @@ export const validacionFormularioUsuarioRegistroTutor = [
     .trim().escape(),
 
     body('rol').notEmpty().withMessage("El rol es requerido")
-    .isIn([3]).withMessage("Valor ingresado invalido")
+    .isIn([2]).withMessage("Valor ingresado invalido")
     .isInt().withMessage("El valor debe ser un numero").trim(),
 
     body('telefono').notEmpty().withMessage("El telefono es obligatorio").trim(),
-    body('fecha_nacimiento').isDate({format:"string"}),
+    //body('fecha_nacimiento').isDate({format:"string"}),
 
     body('ubicacion').trim().escape()
 
