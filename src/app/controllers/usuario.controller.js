@@ -31,7 +31,7 @@ export const IniciarSesion = async (req = request, res = response) => {
 
         let jwt = crearToken(dataToken)
 
-        return res.status(200).json({ "token": jwt })
+        return res.status(200).json({ "token": jwt, "user": usuario.dataValues })
 
 
 
