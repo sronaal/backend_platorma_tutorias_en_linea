@@ -12,6 +12,7 @@ export const IniciarSesion = async (req = request, res = response) => {
 
         let { email, password } = req.body
 
+        console.log(req.body)
 
         let usuario = await usuarioDao.buscarPorEmail(email)
 
@@ -29,9 +30,23 @@ export const IniciarSesion = async (req = request, res = response) => {
             "rol": rol
         }
 
+
+
         let jwt = crearToken(dataToken)
 
+<<<<<<< HEAD
         return res.status(200).json({ "token": jwt, "user": usuario.dataValues })
+=======
+
+        let json_data = {
+            id_usuario: usuario.dataValues.id,
+            rol:rol,
+            jwt,
+
+        }
+
+        return res.status(200).json({ "token": json_data })
+>>>>>>> c35eb84 (Proteccion Rutas / Edicion respuesta autenticacion exitosa)
 
 
 

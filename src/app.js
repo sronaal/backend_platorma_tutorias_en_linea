@@ -3,6 +3,7 @@ import cors from 'cors'
 
 
 // IMPORTACION DE RUTAS
+
 import rutasUsuarios from "./app/routes/usuarios.routes.js"
 import rutasMateria from './app/routes/materia.routes.js'
 import rutasTutor from './app/routes/tutores.routes.js'
@@ -24,10 +25,13 @@ const conectarDB = () => {
             initModel()
             //initData()
 
+            
             return database.sync({ force: false })
+
 
         })
         .then(() => {
+            console
 
             console.log("SINCRONIZACION DB EXITOSA ")
         })
@@ -49,6 +53,7 @@ app.use(express.urlencoded({ extended: true }))
 // RUTAS DE LA APLICACIONES
 //app.use('/api/doc',swaggerUI.serve, swaggerUI.setup(swaggerOptiosn))
 app.use('/api/v1/user', rutasUsuarios)
+
 app.use('/api/v1/materia', rutasMateria)
 app.use('/api/v1/tutor', rutasTutor)
 app.use('/api/v1/estudiante', rutasEstudiante)

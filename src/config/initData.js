@@ -19,7 +19,7 @@ export const initData = async () => {
         nombre: "Ronal",
         apellido: "Sánchez",
         email: "estudiante1@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 3,
         telefono: "3202910719",
         preferencias: {
@@ -31,7 +31,7 @@ export const initData = async () => {
         nombre: "Vannesa",
         apellido: "Perez",
         email: "estudiante3@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 3,
         telefono: "1234567",
         preferencias: {
@@ -43,7 +43,7 @@ export const initData = async () => {
         nombre: "Dilan",
         apellido: "Perez",
         email: "estudiante4@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 3,
         telefono: "1234567",
         preferencias: {
@@ -55,7 +55,7 @@ export const initData = async () => {
         nombre: "Luisa",
         apellido: "Perez",
         email: "tutor@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 2,
         telefono: "1234567",
         preferencias: {
@@ -67,7 +67,7 @@ export const initData = async () => {
         nombre: "Jorge",
         apellido: "Perez",
         email: "tutor1@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 2,
         telefono: "1234567",
         preferencias: {
@@ -80,7 +80,7 @@ export const initData = async () => {
         nombre: "Jorge",
         apellido: "Perez",
         email: "tutor1@gmail.com",
-        password: "contraseña",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 2,
         telefono: "1234567",
         preferencias: {
