@@ -8,6 +8,7 @@ let routes = Router()
 
 routes.get('/:id', verificarToken, obtenerPerfilEstudiante)
 
+
 routes.get('/tutores/filter', filtrarTuroresSegunFiltro)
 
 
