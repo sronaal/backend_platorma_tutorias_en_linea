@@ -22,6 +22,8 @@ export const obtenerPerfilEstudiante = async (req = request, res = response) => 
     }
 }
 
+
+
 export const filtrarTuroresSegunFiltro = async (req = request, res = response) => {
 
 

@@ -6,7 +6,6 @@ const routes =  Router()
 
 routes.get('/', obtenerTutoresDisponibles)
 
-routes.get('/filter', filtradoTurores )
 
 
 export default routes

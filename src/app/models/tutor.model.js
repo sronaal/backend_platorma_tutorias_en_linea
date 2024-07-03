@@ -21,6 +21,10 @@ export const Tutor = database.define('tutor', {
     
     ubicacion:{
         type:DataTypes.STRING
+    },
+
+    nivelEducativo:{
+        type: DataTypes.STRING
     }
 },
 {

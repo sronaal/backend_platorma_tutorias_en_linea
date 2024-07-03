@@ -1,70 +1,84 @@
+import { Op } from 'sequelize'
 import { Tutor } from "../models/tutor.model.js";
 import { Usuario } from "../models/usuario.models.js";
 import { Materia } from '../models/materia.model.js'
+
+import { Ubicacion } from "../models/ubicacion.model.js";
 
 export class DaoTutor {
 
 
 
-    asignarRolTutor(id_usuario){
+    asignarRolTutor(id_usuario) {
 
-        return Tutor.create({id_usuario:id_usuario})
+        return Tutor.create({ id_usuario: id_usuario })
     }
 
 
-    obtenerTutoresFiltrados(filtros){
+    obtenerTutoresFiltrados(filtros) {
 
 
         let queryOptions = {
 
             include: [
+
                 {
-                    model:Usuario,
-                    include: ['nombre','apellido','email']
+                    model: Usuario,
+                    attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
                 },
                 {
-                    model:Materia,
-                    through: { attributes: [] } 
-                }
+                    model: Materia,
+                  
+                    
+                },
+                
             ],
-            where: {}
+           
         }
 
-        if(filtros.materia != undefined) queryOptions.include[1].where = { nombre: filtros.materia}
+        if(filtros.materia != undefined) queryOptions.include[1].where = { nombre:  filtros.materia }
 
-        return Tutor.findAll()
 
-       
+        //if(filtros.niveleducativo != undefined) queryOptions.include[1].where = { nivelEducativo: filtros.niveleducativo}
+
+        if(filtros.ciudad != undefined) queryOptions.where  = { ubicacion: filtros.ciudad }
+        return Tutor.findAll(queryOptions)
+
+
     }
 
 
-    obtenerTutores(){
+    obtenerTutores() {
 
         return Tutor.findAll({
-            
+
             include: [
                 {
-                    model: Materia
+                    model: [
+                        {
+                            Usuario
+                        }
+                    ]
                 }
             ]
         })
 
     }
 
-    obtenerTutorias(){
+    obtenerTutorias() {
 
-        
+
     }
 
 
-    inscribirMateria(Materia){}
+    inscribirMateria(Materia) { }
 
-    eliminarInscripcionMaterial(){}
+    eliminarInscripcionMaterial() { }
 
-    actualizarDisponibilidad(){}
-    
+    actualizarDisponibilidad() { }
 
-    verReservas(){}
 
-    calificarEstudiante(){}
+    verReservas() { }
+
+    calificarEstudiante() { }
 }
