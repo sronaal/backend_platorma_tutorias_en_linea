@@ -25,7 +25,9 @@ export const Tutor = database.define('tutor', {
 
     nivelEducativo:{
         type: DataTypes.STRING
-    }
+    },
+
+
 },
 {
     createdAt:false,

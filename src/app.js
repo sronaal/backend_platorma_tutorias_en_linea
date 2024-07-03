@@ -26,7 +26,7 @@ const conectarDB = () => {
             //initData()
 
             
-            return database.sync({ force: false })
+            return database.sync({ force: true })
 
 
         })

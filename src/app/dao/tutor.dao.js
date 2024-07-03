@@ -14,6 +14,10 @@ export class DaoTutor {
         return Tutor.create({ id_usuario: id_usuario })
     }
 
+    buscarTutorId(id) {
+
+        return Tutor.findOne({ where: { id:id }})
+    }
 
     obtenerTutoresFiltrados(filtros) {
 

@@ -9,9 +9,9 @@ export const initData = async () => {
     // Crear usuarios por defecto
 
     const roles = await Rol.bulkCreate([
-      { id_rol: "Administrador" },
-      { id_rol: "Tutor" },
-      { id_rol: "Estudiantes" },
+      { rol: "Administrador" },
+      { rol: "Tutor" },
+      { rol: "Estudiantes" },
     ]);
 
     const usuarios = await Usuario.bulkCreate([
@@ -79,7 +79,7 @@ export const initData = async () => {
       {
         nombre: "Jorge",
         apellido: "Perez",
-        email: "tutor1@gmail.com",
+        email: "tutor2@gmail.com",
         password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
         id_rol: 2,
         telefono: "1234567",
@@ -88,6 +88,21 @@ export const initData = async () => {
           intereses: ["Frances", "Ingles"],
         },
       },
+      {
+        nombre: "Manuela",
+        apellido: "Perez",
+        email: "tutor3@gmail.com",
+        password: "$2a$12$EKAgd/iefidUk.0dfF5g.e.vfQcpdGgnTisa1PH5cW/3tMBg1Gg9S",
+        id_rol: 2,
+        telefono: "1234567",
+        preferencias: {
+          tipo_modalidad: "Presencial",
+          intereses: ["Frances", "Ingles"],
+        },
+      },
+
+
+
     ]);
 
     // Crear tutores por defecto

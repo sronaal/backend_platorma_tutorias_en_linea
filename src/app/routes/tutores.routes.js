@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { obtenerTutoresDisponibles, filtradoTurores } from '../controllers/tutores.controller.js'
+import { obtenerTutoresDisponibles, filtradoTurores, agregarDisponibilidad } from '../controllers/tutores.controller.js'
 
 const routes =  Router()
 
@@ -7,6 +7,6 @@ const routes =  Router()
 routes.get('/', obtenerTutoresDisponibles)
 
 routes.get('/filter', filtradoTurores )
-
+routes.get('/disponibilidad/add', agregarDisponibilidad)
 
 export default routes
