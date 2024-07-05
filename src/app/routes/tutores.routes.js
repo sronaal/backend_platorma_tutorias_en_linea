@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { obtenerTutoresDisponibles, filtradoTurores, agregarDisponibilidad } from '../controllers/tutores.controller.js'
+import { obtenerTutoresDisponibles, agregarDisponibilidad, obtenerTutorId } from '../controllers/tutores.controller.js'
+import { verificarToken } from '../helpers/jwt.js'
 
 const routes =  Router()
 
+routes.get('/:id', verificarToken, obtenerTutorId)
+routes.get('/', verificarToken, obtenerTutoresDisponibles)
 
-routes.get('/', obtenerTutoresDisponibles)
-
-routes.get('/filter', filtradoTurores )
-routes.get('/disponibilidad/add', agregarDisponibilidad)
+routes.get('/disponibilidad/add', verificarToken, agregarDisponibilidad)
 
 export default routes

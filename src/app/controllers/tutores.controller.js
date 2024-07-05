@@ -21,16 +21,18 @@ export const obtenerTutoresDisponibles = async (req = request, res = response) =
 }
 
 
-export const filtradoTurores = async (req = request, res = response) => {
+export const obtenerTutorId = async (req = request, res  = response) => {
 
     try {
+        
+        let id = req.params.id
 
-        const { query } = req
+        let tutor = await tutorDao.buscarTutorId(id)
 
-        console.log(query)
-
+        return res.status(200).json({ tutor })
     } catch (error) {
-
+        
+        return res.status(400).json({ error })
     }
 }
 

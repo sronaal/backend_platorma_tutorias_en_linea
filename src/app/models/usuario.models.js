@@ -24,6 +24,10 @@ export const Usuario = database.define('Usuario', {
         type: DataTypes.STRING,
         allowNull: null
     },
+    genero: {
+        type: DataTypes.STRING,
+        allowNull: null
+    },
 
     telefono:{
 

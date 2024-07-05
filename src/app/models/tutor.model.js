@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import database from "../../database_conexion.js";
 import { Usuario } from "./usuario.models.js";
 
+
 export const Tutor = database.define('tutor', {
 
 
@@ -27,6 +28,9 @@ export const Tutor = database.define('tutor', {
         type: DataTypes.STRING
     },
 
+    profesion:{
+        type: DataTypes.JSON()
+    }
 
 },
 {

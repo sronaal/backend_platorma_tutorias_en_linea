@@ -100,12 +100,13 @@ export const registrarTutor = async (req = request, res = response) => {
 
     try {
 
-        let { nombre, apellido, email, password, telefono, rol, fecha_nacimiento } = req.body
+        let { nombre, apellido, email, password, telefono, rol, fecha_nacimiento,gender } = req.body
 
         let usuario = {
             "nombre": nombre,
             "apellido": apellido,
             "email": email,
+            "genero": gender,
             "telefono": telefono,
             "fecha_nacimiento": fecha_nacimiento, // fecha de nacimiento por defecto
             "password": await generarHashPassword(password),
