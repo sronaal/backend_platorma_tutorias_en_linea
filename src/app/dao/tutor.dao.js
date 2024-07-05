@@ -4,6 +4,7 @@ import { Usuario } from "../models/usuario.models.js";
 import { Materia } from '../models/materia.model.js'
 
 import { Ubicacion } from "../models/ubicacion.model.js";
+import { Disponibilidad } from '../models/disponibilidad.model.js';
 
 export class DaoTutor {
 
@@ -50,6 +51,29 @@ export class DaoTutor {
 
 
     }
+
+
+    obtenerTutoresDisponibles(){
+
+        return Tutor.findAll({
+
+            include:[
+                {
+                    model:Disponibilidad,
+                
+                    where:{ name: "Disponible" }
+                },
+                {
+                    model: Usuario,
+                    attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+
+
+                }
+
+            ]
+        })
+    }
+
 
 
     obtenerTutores() {

@@ -7,6 +7,7 @@ const routes =  Router()
 routes.get('/:id', verificarToken, obtenerTutorId)
 routes.get('/', verificarToken, obtenerTutoresDisponibles)
 
-routes.get('/disponibilidad/add', verificarToken, agregarDisponibilidad)
+routes.get('/:id/disponibilidad/add', verificarToken, agregarDisponibilidad)
+
 
 export default routes

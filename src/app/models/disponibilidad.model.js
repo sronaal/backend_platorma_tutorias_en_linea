@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import database from '../../database_conexion.js'
-import { Tutor } from "./tutor.model.js";
 
 
 export const Disponibilidad = database.define('disponibilidad', {
@@ -12,13 +11,7 @@ export const Disponibilidad = database.define('disponibilidad', {
 
     },
 
-    id_tutor: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Tutor,
-            key: 'id'
-        }
-    },
+    
 
     dia: {
         type: DataTypes.ENUM(['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'])
