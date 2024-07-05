@@ -69,3 +69,4 @@ export const agregarDisponibilidad = async (req = request, res = response) => {
         return res.status(400).json({ error: error })
     }
 }
+

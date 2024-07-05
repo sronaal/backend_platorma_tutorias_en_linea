@@ -17,7 +17,33 @@ export class DaoTutor {
 
     buscarTutorId(id) {
 
-        return Tutor.findOne({ where: { id:id }})
+
+
+        return Tutor.findOne({
+            where: { id_usuario: id },
+            attributes: { exclude: ['id_disponibilidad', 'id_usuario', 'id'] },
+            include: [
+                {
+                    model: Disponibilidad,
+                    attributes: { exclude: ['createdAt', 'updatedAt'] },
+                    where: { estado: 'Disponible' }
+                },
+
+                {
+                    model: Usuario,
+                    attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+                }
+
+
+            ]
+        })
+
+
+
+
+
+
+
     }
 
     obtenerTutoresFiltrados(filtros) {
@@ -33,45 +59,55 @@ export class DaoTutor {
                 },
                 {
                     model: Materia,
-                  
-                    
+
+
                 },
-                
+                {
+                    model: Disponibilidad,
+                    attributes: { exclude: ['createdAt', 'updatedAt'] },
+                    where: { estado: 'Disponible' }
+                },
+
             ],
-           
+
         }
 
-        if(filtros.materia != undefined) queryOptions.include[1].where = { nombre:  filtros.materia }
+        if (filtros.materia != undefined) queryOptions.include[1].where = { nombre: filtros.materia }
 
 
         //if(filtros.niveleducativo != undefined) queryOptions.include[1].where = { nivelEducativo: filtros.niveleducativo}
 
-        if(filtros.ciudad != undefined) queryOptions.where  = { ubicacion: filtros.ciudad }
+        if (filtros.ciudad != undefined) queryOptions.where = { ubicacion: filtros.ciudad }
         return Tutor.findAll(queryOptions)
 
 
     }
 
 
-    obtenerTutoresDisponibles(){
+    obtenerTutoresDisponibles() {
+
 
         return Tutor.findAll({
-
-            include:[
+            attributes: { exclude: ['id_disponibilidad', 'id_usuario'] },
+            include: [
                 {
-                    model:Disponibilidad,
-                
-                    where:{ name: "Disponible" }
+                    model: Disponibilidad,
+                    attributes: { exclude: ['createdAt', 'updatedAt'] },
+                    where: { estado: 'Disponible' }
                 },
+
                 {
                     model: Usuario,
                     attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
-
-
                 }
+
 
             ]
         })
+
+
+
+
     }
 
 

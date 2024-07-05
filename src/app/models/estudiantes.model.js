@@ -29,7 +29,8 @@ export const Estudiante = database.define('estudiante', {
 
     discapacidad:{
         type: DataTypes.JSON()
-    }
+    }, 
+    
 
 
 }, {
