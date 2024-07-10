@@ -8,6 +8,7 @@ import rutasUsuarios from "./app/routes/usuarios.routes.js"
 import rutasMateria from './app/routes/materia.routes.js'
 import rutasTutor from './app/routes/tutores.routes.js'
 import rutasEstudiante from './app/routes/estudiantes.routes.js'
+import rutasTutoria from './app/routes/tutoria.routes.js'
 import database from './database_conexion.js'
 
 import { initModel } from './app/models/init_models.js'
@@ -57,7 +58,7 @@ app.use('/api/v1/user', rutasUsuarios)
 app.use('/api/v1/materia', rutasMateria)
 app.use('/api/v1/tutor', rutasTutor)
 app.use('/api/v1/estudiante', rutasEstudiante)
-
+app.use('/api/v1/tutorias', rutasTutoria)
 
 
 

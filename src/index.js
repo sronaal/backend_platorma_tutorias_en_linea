@@ -1,7 +1,7 @@
 import app from './app.js'
 import config from './config/configuraciones.js'
 
-const PORT = config.port || 8081
+const PORT = config.port || 8080
 app.listen(PORT, (err) => {
 
     if(err) console.error(`Error servidor HTTP ${err}`)

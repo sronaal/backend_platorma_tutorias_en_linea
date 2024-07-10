@@ -7,31 +7,35 @@ import { Tutor } from "./tutor.model.js";
 import { Ubicacion } from "./ubicacion.model.js";
 import { Usuario } from "./usuario.models.js";
 import { Disponibilidad } from './disponibilidad.model.js'
+import { Tutoria } from "./tutoria.mode.js"
 
-export const initModel = async  () => {
+export const initModel = async () => {
 
-    
-    
-    Usuario.hasOne(Estudiante,{ foreignKey: 'id_usuario'})
+
+
+    Usuario.hasOne(Estudiante, { foreignKey: 'id_usuario' })
     Usuario.hasOne(Administrador, { foreignKey: 'id_usuario' })
-    Usuario.hasOne(Tutor,{ foreignKey:'id_usuario'})
-    
-    Rol.hasOne(Usuario,{ foreignKey: 'id_rol' })
-    Ubicacion.hasOne(Usuario, { foreignKey: 'ubicacion' })
-    Disponibilidad.hasOne(Tutor, {foreignKey: 'id_disponibilidad' })
+    Usuario.hasOne(Tutor, { foreignKey: 'id_usuario' })
 
-    Usuario.belongsTo(Rol,{ foreignKey: 'id_rol'})
-    
-    Usuario.belongsTo(Ubicacion,{ foreignKey: 'ubicacion' })
+    Rol.hasOne(Usuario, { foreignKey: 'id_rol' })
+    Ubicacion.hasOne(Usuario, { foreignKey: 'ubicacion' })
+    Disponibilidad.hasOne(Tutor, { foreignKey: 'id_disponibilidad' })
+
+    Usuario.belongsTo(Rol, { foreignKey: 'id_rol' })
+
+    Usuario.belongsTo(Ubicacion, { foreignKey: 'ubicacion' })
     Estudiante.belongsTo(Usuario, { foreignKey: 'id_usuario' })
 
     Administrador.belongsTo(Usuario, { foreignKey: 'id_usuario' })
     Tutor.belongsTo(Usuario, { foreignKey: 'id_usuario' })
-    Tutor.belongsTo(Disponibilidad, { foreignKey : 'id_disponibilidad' })
+    Tutor.belongsTo(Disponibilidad, { foreignKey: 'id_disponibilidad' })
 
-    Tutor.belongsToMany(Materia, { through: TutorMateria, foreignKey :'tutorId' })
-    Materia.belongsToMany(Tutor, { through: TutorMateria, foreignKey: 'materiadId'})
+    Tutor.belongsToMany(Materia, { through: TutorMateria, foreignKey: 'tutorId' })
+    Materia.belongsToMany(Tutor, { through: TutorMateria, foreignKey: 'materiadId' })
 
+    Tutor.belongsTo(Tutoria, { foreignKey: 'id_tutor' })
+    Estudiante.belongsTo(Tutoria, { foreignKey: 'id_estudiante' })
 
-
+    Tutoria.hasOne(Estudiante, {foreignKey:'id_estudiante' })
+    Tutoria.hasOne(Tutor, { foreignKey: 'id_tutor' })
 }

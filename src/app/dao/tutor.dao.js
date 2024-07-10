@@ -21,7 +21,7 @@ export class DaoTutor {
 
         return Tutor.findOne({
             where: { id_usuario: id },
-            attributes: { exclude: ['id_disponibilidad', 'id_usuario', 'id'] },
+            attributes: { exclude: ['id_disponibilidad'] },
             include: [
                 {
                     model: Disponibilidad,
