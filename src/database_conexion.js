@@ -6,6 +6,7 @@ const database = new Sequelize(config.database.database,config.database.user,con
 
     host: config.database.host,
     dialect:'mysql',
+    logging:false
     
     
 })

@@ -30,16 +30,19 @@ export const agendarTutoria = async (req = request, res = response) => {
         let { id_estudiante, id_tutor, fecha, horaInicio, horaFin, estado } = req.body
 
         let validarExistenciaEstudianteId = await daoEstudiante.obtenerDatosEstudiante(id_estudiante)
-
+        
         if (!validarExistenciaEstudianteId) return res.status(404).json({ "mensaje": "Estudiante no encontrado" })
 
-        let validarExistenciaTutorId = await daoTutor.buscarTutorId(id_tutor)
-
+        let validarExistenciaTutorId = await daoTutor.buscarTutov2(id_tutor)
+        
+        
+        
+        
         if (!validarExistenciaTutorId) return res.status(404).json({ "mensaje": "Tutor no encontrado" })
 
         let tutoria = {
 
-            "id_estudiante": validarExistenciaEstudianteId.dataValues.id,
+            "id_estudiante": validarExistenciaEstudianteId.dataValues.estudiante.id,
             "id_tutor": validarExistenciaTutorId.dataValues.id,
             "fecha": fecha,
             "horaInicio": horaInicio,
@@ -47,12 +50,14 @@ export const agendarTutoria = async (req = request, res = response) => {
             "estado": estado
         }
 
+        console.log(tutoria)
         let tutoriaCreate = await daoTutoria.crearTutoria(tutoria)
-
+        //console.log(tutoriaCreate)
         return res.status(201).json({ "mensaje": "Tutoria creada" })
 
 
     } catch (error) {
-
+        console.log(error)
+        return res.status(400).json({error})
     }
 }

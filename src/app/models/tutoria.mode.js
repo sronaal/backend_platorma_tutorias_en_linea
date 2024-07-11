@@ -44,9 +44,6 @@ export const Tutoria = database.define('tutoria',{
         type: DataTypes.ENUM(['PROGRAMADA', 'EN CURSO','TERMINADA'])
     },
 
-    calificacion:{
-        type: DataTypes.INTEGER
-    }
     
     
 })

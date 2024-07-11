@@ -15,6 +15,14 @@ export class DaoTutor {
         return Tutor.create({ id_usuario: id_usuario })
     }
 
+
+    buscarTutov2(id_usuario){
+
+        return Tutor.findOne({
+            where: {id_usuario:id_usuario}
+        })
+    }
+
     buscarTutorId(id) {
 
 

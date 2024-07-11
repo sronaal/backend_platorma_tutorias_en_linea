@@ -15,7 +15,7 @@ export class DaoEstudiante {
 
         return Usuario.findOne({ where: { id: id_usuario }, 
             
-            attributes:['id','nombre','apellido','edad','email','telefono','ubicacion'],
+            attributes:['id','nombre','apellido','genero','fecha_nacimiento','email','telefono','ubicacion'],
             include: [
                 {
                     model:Estudiante
